@@ -115,7 +115,7 @@ export function OverlayProvider({ children }: OverlayProviderProps) {
   }, []);
 
   useEffect(() => {
-    if (!hydrated || locale !== "zh" || typeof document === "undefined") {
+    if (!hydrated || locale === "en" || typeof document === "undefined") {
       return;
     }
 
