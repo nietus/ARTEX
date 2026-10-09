@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattingLocale } from "@/lib/i18n/format";
 import * as React from "react";
 
 import {
@@ -1637,9 +1638,9 @@ export function SessionsTab({ taskId }: { taskId: string }) {
                   </div>
                 </TooltipTrigger>
                 <TooltipContent>
-                  Input {taskTokens.input_tokens.toLocaleString()} · Output {taskTokens.output_tokens.toLocaleString()} ·
-                  Cache Read {taskTokens.cache_read_tokens.toLocaleString()} · Cache Write{" "}
-                  {taskTokens.cache_write_tokens.toLocaleString()}
+                  Input {taskTokens.input_tokens.toLocaleString(getFormattingLocale())} · Output {taskTokens.output_tokens.toLocaleString(getFormattingLocale())} ·
+                  Cache Read {taskTokens.cache_read_tokens.toLocaleString(getFormattingLocale())} · Cache Write{" "}
+                  {taskTokens.cache_write_tokens.toLocaleString(getFormattingLocale())}
                 </TooltipContent>
               </Tooltip>
             )}
@@ -1816,10 +1817,10 @@ export function SessionsTab({ taskId }: { taskId: string }) {
                       </span>
                     </TooltipTrigger>
                     <TooltipContent>
-                      Input {activeTokens.input_tokens.toLocaleString()} · Output{" "}
-                      {activeTokens.output_tokens.toLocaleString()} · Cache Read{" "}
-                      {activeTokens.cache_read_tokens.toLocaleString()} · Cache Write{" "}
-                      {activeTokens.cache_write_tokens.toLocaleString()}
+                      Input {activeTokens.input_tokens.toLocaleString(getFormattingLocale())} · Output{" "}
+                      {activeTokens.output_tokens.toLocaleString(getFormattingLocale())} · Cache Read{" "}
+                      {activeTokens.cache_read_tokens.toLocaleString(getFormattingLocale())} · Cache Write{" "}
+                      {activeTokens.cache_write_tokens.toLocaleString(getFormattingLocale())}
                     </TooltipContent>
                   </Tooltip>
                 )}

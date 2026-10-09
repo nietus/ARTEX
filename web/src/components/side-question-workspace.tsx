@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattingLocale } from "@/lib/i18n/format";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import { ArrowUpIcon, MessageCircleQuestionIcon, SquareIcon, Trash2Icon, XIcon } from "lucide-react";
@@ -92,7 +93,7 @@ function SidePanel({
         {side.snapshot ? (
           <>
             <p>{side.snapshot.model.model}</p>
-            <p>Context updated at {new Date(side.snapshot.captured_at).toLocaleString()}</p>
+            <p>Context updated at {new Date(side.snapshot.captured_at).toLocaleString(getFormattingLocale())}</p>
           </>
         ) : (
           "Can ask after main Agent runs once"
@@ -123,12 +124,12 @@ function SidePanel({
         <div className="flex flex-col gap-5">
           {side.items.map((item) => (
             <article key={item.id} className="flex min-w-0 flex-col gap-2">
-              <div className="whitespace-pre-wrap break-words rounded-lg bg-muted p-3 text-sm">{item.question}</div>
+              <div data-no-i18n className="whitespace-pre-wrap break-words rounded-lg bg-muted p-3 text-sm">{item.question}</div>
               <div className="flex flex-wrap items-center gap-2 text-muted-foreground text-xs">
                 <Badge variant="secondary">{status[item.status]}</Badge>
                 <span className="truncate">{item.model.model}</span>
-                <time dateTime={item.snapshot_at} title={new Date(item.snapshot_at).toLocaleString()}>
-                  Context {new Date(item.snapshot_at).toLocaleTimeString()}
+                <time dateTime={item.snapshot_at} title={new Date(item.snapshot_at).toLocaleString(getFormattingLocale())}>
+                  Context {new Date(item.snapshot_at).toLocaleTimeString(getFormattingLocale())}
                 </time>
               </div>
               {item.context?.estimated_input_tokens != null && (

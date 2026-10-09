@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattingLocale } from "@/lib/i18n/format";
 import * as React from "react";
 import {
   CheckIcon,
@@ -137,11 +138,11 @@ function ActivityTime({ ts }: { ts: string }) {
   return (
     <time
       dateTime={date.toISOString()}
-      title={date.toLocaleString("zh-CN")}
+      title={date.toLocaleString(getFormattingLocale())}
       className="text-[10px] text-muted-foreground tabular-nums"
       suppressHydrationWarning
     >
-      {date.toLocaleString("zh-CN", {
+      {date.toLocaleString(getFormattingLocale(), {
         month: "2-digit",
         day: "2-digit",
         hour: "2-digit",
@@ -620,7 +621,7 @@ function UserRow({ step, intent, getDetail }: { step: Activity; intent?: boolean
           </div>
         )}
         {text && (
-          <div className="min-w-0 max-w-full whitespace-pre-wrap rounded-lg rounded-tr-sm bg-primary px-3 py-1.5 text-sm text-primary-foreground [overflow-wrap:anywhere]">
+          <div data-no-i18n className="min-w-0 max-w-full whitespace-pre-wrap rounded-lg rounded-tr-sm bg-primary px-3 py-1.5 text-sm text-primary-foreground [overflow-wrap:anywhere]">
             {text}
           </div>
         )}

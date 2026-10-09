@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattingLocale } from "@/lib/i18n/format";
 import * as React from "react";
 
 import { toast } from "sonner";
@@ -90,7 +91,7 @@ export function TrafficEvidenceViewer({
               <TabsContent key={side} value={side}>
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-xs text-muted-foreground">
-                    Body {detail[side].total.toLocaleString()} Bytes{detail[side].truncated ? " · Currently in Preview" : ""}
+                    Body {detail[side].total.toLocaleString(getFormattingLocale())} Bytes{detail[side].truncated ? " · Currently in Preview" : ""}
                   </span>
                   <Button
                     variant="outline"

@@ -11,6 +11,8 @@
     "format": "biome format --write",
     "check": "biome check",
     "check:fix": "biome check --write",
+    "test:i18n": "node --test tests/i18n.test.cjs",
+    "i18n:audit": "node ../scripts/i18n/audit.cjs",
     "prepare": "husky",
     "generate:presets": "ts-node -P tsconfig.scripts.json src/scripts/generate-theme-presets.ts"
   },
@@ -72,6 +74,7 @@
     "@types/topojson-client": "^3.1.5",
     "babel-plugin-react-compiler": "^1.0.0",
     "husky": "^9.1.7",
+    "jsdom": "^30.1.2",
     "lint-staged": "^16.4.0",
     "postcss": "^8.5.16",
     "tailwindcss": "^4.1.5",

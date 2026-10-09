@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattingLocale } from "@/lib/i18n/format";
 import * as React from "react";
 
 import {
@@ -946,7 +947,7 @@ const ConversationItem = React.memo(function ConversationItem({
               </>
             )}
             <span className="shrink-0">
-              {new Date(conv.created_at).toLocaleDateString("zh-CN", {
+              {new Date(conv.created_at).toLocaleDateString(getFormattingLocale(), {
                 month: "numeric",
                 day: "numeric",
                 hour: "2-digit",
@@ -1211,7 +1212,7 @@ export default function ChatPage() {
     if (agentFilter !== null) keys.add(agentFilter);
     return [...keys]
       .map((key) => ({ key, name: agentByKey.get(key)?.name || key, count: counts.get(key) ?? 0 }))
-      .sort((a, b) => a.name.localeCompare(b.name, "zh-CN"));
+      .sort((a, b) => a.name.localeCompare(b.name, getFormattingLocale()));
   }, [convs, chatAgents, agentByKey, agentFilter]);
   const conversationCountLabel =
     agentFilter === null ? `Total ${convs.length} items` : `${filteredConversations.length} / ${convs.length} items`;

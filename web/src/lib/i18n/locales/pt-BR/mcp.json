@@ -1,0 +1,18 @@
+{
+  "Transfer Method": "Método de transporte",
+  "stdio (Local)": "stdio (local)",
+  "http (Remote)": "http (remoto)",
+  "sse (Legacy)": "sse (legado)",
+  "Parameters (space-separated)": "Parâmetros (separados por espaços)",
+  "Remote URL": "URL remota",
+  "Skip TLS certificate verification (self-signed certificates)": "Ignorar verificação de certificado TLS (certificados autoassinados)",
+  "Request header (each line KEY=VALUE, e.g. Authorization=Bearer xxx)": "Cabeçalhos da requisição (um CHAVE=VALOR por linha, ex.: Authorization=Bearer xxx)",
+  "Environment variables (one per line KEY=VALUE)": "Variáveis de ambiente (uma CHAVE=VALOR por linha)",
+  "No tools found, click refresh to reload.": "Nenhuma ferramenta encontrada; clique em Atualizar para recarregar.",
+  "External MCP Tool Server · Visible per Agent authorization": "Servidor externo de ferramentas MCP · Visibilidade por autorização de agente",
+  "Add MCP": "Adicionar MCP",
+  "No tools discovered": "Nenhuma ferramenta descoberta",
+  "Add MCP Server": "Adicionar servidor MCP",
+  "stdio (Local process) or http (remote Streamable HTTP)": "stdio (processo local) ou http (Streamable HTTP remoto)",
+  "Tool List": "Lista de ferramentas"
+}

@@ -11,17 +11,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { LOCALES } from "@/lib/i18n/locales";
 import { type Locale, useLocale } from "@/lib/i18n/store";
 import { cn } from "@/lib/utils";
 
 type LanguageToggleProps = {
   className?: string;
-};
-
-const LOCALE_BADGES: Record<Locale, string> = {
-  en: "EN",
-  zh: "中",
-  pt: "PT",
 };
 
 export function LanguageToggle({ className }: LanguageToggleProps) {
@@ -63,23 +58,17 @@ export function LanguageToggle({ className }: LanguageToggleProps) {
               "pointer-events-none absolute -right-0.5 -bottom-0.5 rounded border border-foreground/20 bg-foreground px-0.5 font-semibold text-[9px] text-background leading-none",
             )}
           >
-            {LOCALE_BADGES[locale]}
+            {LOCALES[locale].badge}
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onSelect={() => handleSelect("en")} inset>
-          English
-          {locale === "en" && <CheckIcon className="ml-auto size-4" />}
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleSelect("zh")} inset>
-          中文
-          {locale === "zh" && <CheckIcon className="ml-auto size-4" />}
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleSelect("pt")} inset>
-          Português
-          {locale === "pt" && <CheckIcon className="ml-auto size-4" />}
-        </DropdownMenuItem>
+      <DropdownMenuContent align="end" data-no-i18n>
+        {(Object.keys(LOCALES) as Locale[]).map((option) => (
+          <DropdownMenuItem key={option} onSelect={() => handleSelect(option)} inset>
+            {LOCALES[option].label}
+            {locale === option && <CheckIcon className="ml-auto size-4" />}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

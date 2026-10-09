@@ -50,7 +50,7 @@ const components: Components = {
 
 export function Markdown({ text }: { text: string }) {
   return (
-    <div className="min-w-0 space-y-1.5 text-sm [&>*:first-child]:mt-0">
+    <div data-no-i18n className="min-w-0 space-y-1.5 text-sm [&>*:first-child]:mt-0">
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
         {text}
       </ReactMarkdown>

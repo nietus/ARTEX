@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattingLocale } from "@/lib/i18n/format";
 import * as React from "react";
 
 import { toast } from "sonner";
@@ -217,7 +218,7 @@ export function TrafficPickerDialog({
                       {alreadyBound.has(e.id) ? <Badge variant="secondary">Bound</Badge> : null}
                     </TableCell>
                     <TableCell className="whitespace-nowrap text-xs">
-                      {new Date(e.ts).toLocaleString("zh-CN")}
+                      {new Date(e.ts).toLocaleString(getFormattingLocale())}
                     </TableCell>
                     <TableCell>{e.status}</TableCell>
                     <TableCell>

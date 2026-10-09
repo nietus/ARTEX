@@ -1,7 +1,9 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-export type Locale = "en" | "zh" | "pt";
+import { isLocale, type Locale } from "./locales";
+
+export type { Locale } from "./locales";
 
 export type LocaleState = {
   locale: Locale;
@@ -44,6 +46,10 @@ export const useLocale = create<LocaleState>()(
         };
       }),
       partialize: (state) => ({ locale: state.locale }) as LocaleState,
+      merge: (persisted, current) => {
+        const saved = persisted as { locale?: unknown } | undefined;
+        return { ...current, locale: isLocale(saved?.locale) ? saved.locale : "en" };
+      },
       onRehydrateStorage: () => (_state, error) => {
         if (!error) {
           useLocale.setState({ hydrated: true });

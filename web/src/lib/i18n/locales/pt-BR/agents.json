@@ -1,0 +1,21 @@
+{
+  "Create Custom Agent": "Criar agente personalizado",
+  "Agent Inventory": "Lista de agentes",
+  "One-sentence description of what this Agent does": "Descreva em uma frase o que este agente faz",
+  "e.g., Research Assistant": "Ex.: assistente de pesquisa",
+  "Render Preview": "Visualizar resultado",
+  "Leave empty to use built-in default prompt": "Deixe em branco para usar o prompt padrão integrado",
+  "Message sent to agent on scheduled trigger, e.g., “Inspect all tasks”": "Mensagem enviada ao agente no disparo agendado, ex.: “Inspecione todas as tarefas”",
+  "Message sent to agent when a finding is discovered (system includes task and finding details)": "Mensagem enviada ao agente quando há uma descoberta (o sistema inclui detalhes da tarefa e da descoberta)",
+  "Message sent to agent when goal is achieved (system includes task and achieved target)": "Mensagem enviada ao agente quando um objetivo é alcançado (o sistema inclui a tarefa e o objetivo)",
+  "Message sent to agent on task timeout (system includes task ID and target)": "Mensagem enviada ao agente quando o tempo da tarefa se esgota (o sistema inclui o ID e o alvo)",
+  "Message sent to agent when tool is invoked (system includes task info, tool input and output)": "Mensagem enviada ao agente quando uma ferramenta é chamada (o sistema inclui a tarefa, a entrada e a saída)",
+  "Message sent to agent when task is created (system includes task ID and target)": "Mensagem enviada ao agente quando uma tarefa é criada (o sistema inclui o ID e o alvo)",
+  "seconds": "segundos",
+  "Delete Agent “": "Excluir agente “",
+  "This will also delete its prompts, variables, visibility, and tool bindings. This action cannot be undone.": "Os prompts, variáveis, permissões de visibilidade e vínculos de ferramentas também serão excluídos. Esta ação não pode ser desfeita.",
+  "Create New Agent": "Criar agente",
+  "e.g. research_helper": "Ex.: research_helper",
+  "Starts with a lowercase letter, contains only lowercase letters, numbers, or underscores": "Começa com letra minúscula e contém apenas letras minúsculas, números ou sublinhados",
+  "Built-in Agent prompts/configuration, and creation/management of custom conversational Agents": "Prompts e configurações dos agentes integrados; criação e gerenciamento de agentes de conversa personalizados"
+}

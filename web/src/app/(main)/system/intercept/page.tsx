@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattingLocale } from "@/lib/i18n/format";
 import * as React from "react";
 import { toast } from "sonner";
 import {
@@ -314,7 +315,7 @@ function JudgeCard() {
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
-              <JudgeStat label="Approval invocation" value={usage.calls.toLocaleString()} />
+              <JudgeStat label="Approval invocation" value={usage.calls.toLocaleString(getFormattingLocale())} />
               <JudgeStat label="Input Token" value={fmtTokens(usage.input_tokens)} />
               <JudgeStat label="Output Token" value={fmtTokens(usage.output_tokens)} />
               <JudgeStat label="Cache read" value={fmtTokens(usage.cache_read_tokens)} />

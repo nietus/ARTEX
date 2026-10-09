@@ -119,6 +119,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { api } from "@/lib/api";
+import { translateTextNode } from "@/lib/i18n/dict";
+import { getFormattingLocale } from "@/lib/i18n/format";
 import { getLocalStorageValue, setLocalStorageValue } from "@/lib/local-storage.client";
 import { type SortDirection, useStoredSortPreference } from "@/lib/sort-preference";
 import type {
@@ -219,13 +221,13 @@ function deleteSummary(result: DeleteTaskResult): string {
   return details.length > 0 ? `Task Deleted (${details.join(", ")}) ` : "Task Deleted";
 }
 
-// fmtDateTime renders a unix-seconds timestamp as a compact local date-time
-// (MM-DD HH:mm), or "—" when unset.
+// Render a compact date and time using the selected UI language.
 function fmtDateTime(unix?: number): string {
   if (!unix || unix <= 0) return "—";
   const d = new Date(unix * 1000);
-  const p = (n: number) => String(n).padStart(2, "0");
-  return `${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+  return d.toLocaleString(getFormattingLocale(), {
+    month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false,
+  });
 }
 
 const STATUS_OPTIONS: { value: TaskStatus; label: string }[] = [
@@ -1045,8 +1047,8 @@ function SortableTaskHead({
   let ariaSort: React.AriaAttributes["aria-sort"] = "none";
   if (active) ariaSort = direction === "asc" ? "ascending" : "descending";
 
-  let actionLabel = `By${label}Sort Descending`;
-  if (active) actionLabel = `${label}Current${direction === "asc" ? "Ascending" : "Descending"}, Click to toggle sort direction`;
+  let actionLabel = `${translateTextNode("Sort by")} ${translateTextNode(label)}: ${translateTextNode("Descending")}`;
+  if (active) actionLabel = `${translateTextNode(label)}: ${translateTextNode("Current")}, ${translateTextNode(direction === "asc" ? "Ascending" : "Descending")}. ${translateTextNode("Click to toggle sort direction")}`;
 
   return (
     <TableHead className={className} aria-sort={ariaSort}>
@@ -1595,7 +1597,7 @@ function archiveDate(value?: string): string {
   if (!value) return "—";
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "—";
-  return date.toLocaleString();
+  return date.toLocaleString(getFormattingLocale());
 }
 
 function ArchiveDeleteDialog({
@@ -1618,7 +1620,7 @@ function ArchiveDeleteDialog({
         <AlertDialogHeader>
           <AlertDialogTitle>Delete Permanently {archives.length} task archives?</AlertDialogTitle>
           <AlertDialogDescription className="[overflow-wrap:anywhere]">
-            Will permanently delete about {formatArchiveBytes(bytes)} archive package and {rows.toLocaleString()} related data snapshots. This action cannot be undone.
+            Will permanently delete about {formatArchiveBytes(bytes)} archive package and {rows.toLocaleString(getFormattingLocale())} related data snapshots. This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -1932,7 +1934,7 @@ function TaskArchivesPanel({ onChanged }: { onChanged: () => void }) {
                     >
                       {archiveCompressionLabel(archive)}
                     </TableCell>
-                    <TableCell className="text-xs tabular-nums">{archiveDataTotal(archive).toLocaleString()}</TableCell>
+                    <TableCell className="text-xs tabular-nums">{archiveDataTotal(archive).toLocaleString(getFormattingLocale())}</TableCell>
                     <TableCell>
                       <div className="flex min-w-0 flex-col gap-1.5">
                         <ArchiveStateBadge state={archive.state} />

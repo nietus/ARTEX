@@ -1,0 +1,14 @@
+{
+  "Search tool name, description, Agent…": "Buscar nome da ferramenta, descrição, agente…",
+  "Required": "Obrigatório",
+  "Tool description (sent to model)": "Descrição da ferramenta (enviada ao modelo)",
+  "Default value": "Valor padrão",
+  "No matching system tool": "Nenhuma ferramenta do sistema encontrada",
+  "Create custom tool": "Criar ferramenta personalizada",
+  "No matching custom tool": "Nenhuma ferramenta personalizada encontrada",
+  "Edit description, default parameters, and bind to Agent": "Editar descrição, parâmetros padrão e vínculo com agente",
+  "Proxy URL (empty = direct)": "URL do proxy (vazio = conexão direta)",
+  "Run log proxy": "Proxy de registros de execução",
+  "Test run (use current form, won't save)": "Execução de teste (usa o formulário atual, sem salvar)",
+  "Test run": "Executar teste"
+}
