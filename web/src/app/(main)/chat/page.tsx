@@ -250,7 +250,7 @@ function Composer({
           onKeyDown={onKeyDown}
         />
         {running && allowBtw && isBtwCommand(value) && (
-          <Button size="icon" onClick={onSend} aria-label="Send bypass issue" title="Send bypass issue">
+          <Button size="icon" onClick={onSend} aria-label="Send side question" title="Send side question">
             <ArrowUpIcon />
           </Button>
         )}

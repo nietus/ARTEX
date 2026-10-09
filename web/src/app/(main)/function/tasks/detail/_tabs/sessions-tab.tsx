@@ -1970,7 +1970,7 @@ export function SessionsTab({ taskId }: { taskId: string }) {
                       {uploading ? <Loader2Icon className="animate-spin" /> : <PaperclipIcon />}
                     </InputGroupButton>
                     {mainBusy && isBtwCommand(input) && (
-                      <InputGroupButton size="icon-xs" onClick={send} aria-label="Send bypass issue">
+                      <InputGroupButton size="icon-xs" onClick={send} aria-label="Send side question">
                         <ArrowUpIcon />
                       </InputGroupButton>
                     )}
@@ -2036,7 +2036,7 @@ export function SessionsTab({ taskId }: { taskId: string }) {
                       {workerMessageCharCount(workerMessage)}/{MAX_WORKER_MESSAGE_CHARS}
                     </span>
                     {active.status === "running" && isBtwCommand(workerMessage) && (
-                      <InputGroupButton size="icon-xs" onClick={sendWorkerChat} aria-label="Send bypass issue">
+                      <InputGroupButton size="icon-xs" onClick={sendWorkerChat} aria-label="Send side question">
                         <ArrowUpIcon />
                       </InputGroupButton>
                     )}

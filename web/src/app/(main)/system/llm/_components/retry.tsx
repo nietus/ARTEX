@@ -89,7 +89,7 @@ export const RETRY_LAYERS = {
     offHint: "-1 = When the stream breaks, hand the intent over to the outer layer for a full rerun.",
   },
   breaker: {
-    title: "Polling circuit-break",
+    title: "Polling circuit breaker",
     where: "This project · Process-level, single global instance",
     trigger:
       "Instant failures (429, 5xx, network errors) trigger circuit-break once they accumulate to the threshold; deterministic failures like insufficient balance (402), invalid key (401/403), or missing model (404) break immediately without threshold.",
@@ -312,7 +312,7 @@ export function RetryPolicyPanel() {
     <div className="grid gap-4">
       <div className="rounded-lg border bg-muted/30 p-3 text-muted-foreground text-xs leading-relaxed">
         A model call failure goes through five retry layers sequentially, from inner to outer:
-        <span className="text-foreground"> Establish connection → Empty response → Same provider security window → Polling circuit-break → Intent rerun</span>
+        <span className="text-foreground"> Establish connection → Empty response → Same provider security window → Polling circuit breaker → Intent rerun</span>
         . Outer layer is reached only after inner layer exhausts, so count is
         <span className="text-foreground">Multiplicative</span>
         ; max out each layer; a single jitter can consume dozens of requests.

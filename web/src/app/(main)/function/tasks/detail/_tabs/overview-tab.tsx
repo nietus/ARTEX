@@ -1200,7 +1200,7 @@ function TaskInterceptRulesCard({ taskId }: { taskId: string }) {
           />
           <Input
             className="h-7 w-36 text-sm"
-            placeholder="Remarks (optional))"
+            placeholder="Remarks (optional)"
             value={newNote}
             onChange={(e) => setNewNote(e.target.value)}
             disabled={busy}
@@ -1248,7 +1248,7 @@ function TaskInterceptRulesCard({ taskId }: { taskId: string }) {
                   />
                   <Input
                     className="h-7 w-36 text-sm"
-                    placeholder="Remarks (optional))"
+                    placeholder="Remarks (optional)"
                     value={editNote}
                     onChange={(e) => setEditNote(e.target.value)}
                     disabled={busy}

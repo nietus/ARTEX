@@ -77,7 +77,7 @@ type Health = { label: string; cls: string; hint?: string };
 function healthOf(p: LLMProfile, m?: LLMPoolMember): Health {
   if (!p.api_key_hint) {
     return {
-      label: "Not configured Key",
+      label: "API key not configured",
       cls: "border-muted-foreground/40 text-muted-foreground",
       hint: "API Key missing, cannot call",
     };

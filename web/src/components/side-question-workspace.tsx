@@ -195,7 +195,7 @@ function SidePanel({
                 size="icon-xs"
                 onClick={() => void side.ask(side.draft)}
                 disabled={side.busy || !side.draft.trim() || !side.snapshot?.available}
-                aria-label="Send bypass issue"
+                aria-label="Send side question"
               >
                 <ArrowUpIcon />
               </InputGroupButton>

@@ -108,7 +108,7 @@ export function TaskLLMProfileChain({
           </ComboboxValue>
           <ComboboxChipsInput
             id={inputId}
-            placeholder={profiles.length > 0 ? "Search and Add LLM Config" : "No Available LLM Configs"}
+            placeholder={profiles.length > 0 ? "Search and add LLM configuration" : "No LLM configurations available"}
             disabled={disabled ? true : profilesUnavailable}
           />
         </ComboboxChips>

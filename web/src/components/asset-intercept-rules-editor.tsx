@@ -79,7 +79,7 @@ export function AssetInterceptRulesEditor({
             />
             <Input
               className="w-[120px] shrink-0"
-              placeholder="Remarks (optional))"
+              placeholder="Remarks (optional)"
               value={r.note}
               onChange={(e) => update(i, { note: e.target.value })}
             />
